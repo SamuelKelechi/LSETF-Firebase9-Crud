@@ -7,6 +7,7 @@ import Services from './Components/Services/Services'
 import Blog from './Components/Blog/Blog'
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import WhatsApp from './Components/WhatsApp';
 
 function App () {
   return(
@@ -20,6 +21,7 @@ function App () {
           <Route path='/serve' element={<Services/>}/>
           <Route path='/blog' element={<Blog/>}/>
         </Routes>
+        <WhatsApp />
       </Router>
    
     </>

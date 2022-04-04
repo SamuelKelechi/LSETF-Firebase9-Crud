@@ -12,7 +12,7 @@ const Database = () => {
     const [newname, setNewname] = useState('');
     const [newage, setNewage] = useState(0);
     const [imgurl, setImgurl] = useState('');
-    const [progress, setProgress] = useState('');
+    const [progress, setProgress] = useState(0);
     const [newtime, setNewtime] = useState(Timestamp.now().toDate())
     const [lsetf, setLsetf] = useState([]);
 
@@ -43,19 +43,14 @@ const Database = () => {
             .catch(err=>{
                 toast("Upload Failed", {type:"error"});
             })
-        })
-     
-       
-    }
-        )
-        setNewname('');
-        setNewage('');
-        setImgurl('');   
+        }) 
+    })   
     }
 
     // const Remove = () => {
     //     document.getElementById("text1").value = " ";
     //     document.getElementById("text2").value = " ";
+    //     document.getElementById("text3").value = "";                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ).value = " ";
     // }
 
     const getData = async () => {
@@ -75,21 +70,23 @@ const Database = () => {
 
   return (
     <Container>
-        <input  name="newname" onChange={((event) => {
+        <input id='text1'  name="newname" onChange={((event) => {
             setNewname(event.target.value)
         })}  placeholder='name'/>
 
-        <input  name="newage"  onChange={((event) => {
+        <input id='text2'  name="newage"  onChange={((event) => {
             setNewage(event.target.value)
         })}placeholder='age'/>
 
-        <input type="file" accept='imgurl/*' name="imgurl" onChange={((event) => {
-            setImgurl(event.target.files)
+        <input id='text3 name"imgurl" type:"file"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ' type="file" accept='imgurl/*' name="imgurl" onChange={((event) => {
+            setImgurl(event.target.files[0])
         })} />
 
                 {
-                progress === 0 ? null: (
-                    <p style={{width:`${progress}%`}}> {`${progress}`} </p>
+                progress === 0 ? null : (
+                    <div>
+                        <p style={{width:`${progress}%`, color:'red'}}> {`Uploading Image ${progress}%`} </p>
+                    </div>
                 )
                 }
 
@@ -104,7 +101,7 @@ const Database = () => {
            <div key={id}>
            <h2>Name:{name}</h2>
            <p>Age:{age}</p>
-            <img src={imgurl} alt="img"/>
+            <img style={{height:'50px'}} src={imgurl} alt="img"/>
            {/* Syntax/Format for Momentjs */}
            <p>  {moment(time.toDate()).fromNow()} </p>
 

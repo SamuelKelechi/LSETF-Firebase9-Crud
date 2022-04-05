@@ -47,11 +47,9 @@ const Database = () => {
     })   
     }
 
-    // const Remove = () => {
-    //     document.getElementById("text1").value = " ";
-    //     document.getElementById("text2").value = " ";
-    //     document.getElementById("text3").value = "";                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ).value = " ";
-    // }
+    const Remove = () => {
+        
+    }
 
     const getData = async () => {
         const data = await getDocs(que, usersCollectionRef)
@@ -76,22 +74,24 @@ const Database = () => {
 
         <input id='text2'  name="newage"  onChange={((event) => {
             setNewage(event.target.value)
-        })}placeholder='age'/>
+        })} placeholder='age'/>
 
-        <input id='text3 name"imgurl" type:"file"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ' type="file" accept='imgurl/*' name="imgurl" onChange={((event) => {
-            setImgurl(event.target.files[0])
-        })} />
+        <input id="text3" name="imgurl" onChange={((e) => {
+            setImgurl(e.target.files[0])
+        })}/>
+      
 
                 {
                 progress === 0 ? null : (
-                    <div>
-                        <p style={{width:`${progress}%`, color:'red'}}> {`Uploading Image ${progress}%`} </p>
+                    <div style={{width: '250px', height:"40px"}}>
+                        <p style={{width:`${progress}%`, backgroundColor:'red'}}> {`Uploading Image ${progress}%`} </p>
                     </div>
                 )
                 }
 
         <button  onClick={(() => {
              AddStud();
+             Remove();
              console.log('Am clicked')
         })}
         >Add Student</button>
